@@ -1,0 +1,512 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Escenas/Metalic cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Movil Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/circular saw.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Metalic Cube Lp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level 2/wall2.png" type="Texture" id=5]
+[ext_resource path="res://Levels/Level 2/road&border.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Level 2/buildings.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Level 2/Sky.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Level 2/Pared Arcade212 copy.png" type="Texture" id=9]
+[ext_resource path="res://Levels/Level 2/wheels&hydrant.png" type="Texture" id=10]
+[ext_resource path="res://Escenas/Niguana M.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Escenas/Portal L2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Escenas/Coin.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Escenas/BlueBerry.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Escenas/coin counter.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Escenas/Macaw P.tscn" type="PackedScene" id=16]
+[ext_resource path="res://sounds/POL-ninja-panda-short.wav" type="AudioStream" id=17]
+[ext_resource path="res://Escenas/Chest.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Escenas/Pause.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Escenas/Fruits counter.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Escenas/GAME OVER.tscn" type="PackedScene" id=22]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 665.84, 32.5547 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 12, 30 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.5, 285.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10.5, 403.5 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 311, 327, 0, 0, 0, 0, 309, 282, 0, 0, 0, 0, 310, 317 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Moving"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 44.64, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 271, 261 ), Vector2( 268, 306 ), Vector2( 271, 258 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../PathFollow2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 44.64 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 268, 306 ) ]
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 337, 375, 0, 0, 0, 0, 506, 375 )
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Moving H"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -26.923 ), Vector2( 123.832, -28.7334 ), Vector2( 0, -28.733 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 123.832, -28.7334 ) ]
+}
+
+[sub_resource type="Curve2D" id=10]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 532, 339, 0, 0, 0, 0, 643, 339, 0, 0, 0, 0, 689, 369 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Moving UP_h"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 105.83, 165.79, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -36, -29 ), Vector2( -47.7656, -29.092 ), Vector2( 8.78174, -25.1456 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 105.83 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -47.7656, -29.092 ) ]
+}
+
+[node name="Street Arcade212" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( 965, 272 )
+scale = Vector2( 1.34294, 0.494 )
+texture = ExtResource( 8 )
+
+[node name="Buildings" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -8, -38 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Buildings"]
+position = Vector2( 943.75, 283 )
+scale = Vector2( 1.3263, 0.40463 )
+texture = ExtResource( 7 )
+
+[node name="Wall Back" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 13, -39 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Wall Back"]
+position = Vector2( 855, 306.25 )
+scale = Vector2( 1.44479, 0.368055 )
+texture = ExtResource( 5 )
+
+[node name="Graffitti Wall" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, -64 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Graffitti Wall"]
+position = Vector2( 531, 329 )
+scale = Vector2( 0.791198, 0.466286 )
+texture = ExtResource( 9 )
+
+[node name="Road&Border" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Road&Border"]
+position = Vector2( 971, 297 )
+scale = Vector2( 1.44479, 0.714815 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxBackground/Road&Border/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/Road&Border/Sprite/StaticBody2D"]
+position = Vector2( -29.0699, 339.927 )
+shape = SubResource( 1 )
+
+[node name="Hydrant" type="Sprite" parent="ParallaxBackground/Road&Border"]
+position = Vector2( 759, 308 )
+scale = Vector2( 0.128387, 0.152857 )
+texture = ExtResource( 10 )
+
+[node name="Movil Platform" parent="ParallaxBackground" instance=ExtResource( 2 )]
+position = Vector2( 520, 366 )
+scale = Vector2( 0.20092, 0.0844348 )
+
+[node name="Movil Platform2" parent="ParallaxBackground" instance=ExtResource( 2 )]
+position = Vector2( 792, 373 )
+scale = Vector2( 0.20092, 0.0844348 )
+
+[node name="circular saw" parent="ParallaxBackground" instance=ExtResource( 3 )]
+position = Vector2( 604, 390 )
+scale = Vector2( 0.18, 0.18 )
+
+[node name="Metalic cube2" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 84, 499 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic cube3" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 122, 473 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic cube4" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 160, 443 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic cube5" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 176, 225 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic cube6" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 209, 246 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic cube21" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 240, 246 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic cube8" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 272, 272 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic Cube Lp" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 198, 418 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic Cube Lp2" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 234, 418 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic Cube Lp3" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 270, 418 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic Cube Lp4" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 305, 418 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="Metalic Cube Lp5" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 19, 204 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic Cube Lp6" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 51, 204 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic Cube Lp7" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 82, 204 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic Cube Lp8" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 113, 204 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic Cube Lp9" parent="ParallaxBackground" instance=ExtResource( 4 )]
+position = Vector2( 144, 204 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="Metalic cube9" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 727, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube10" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 755, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube11" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 783, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube12" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 810, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube13" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 947, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube14" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 975, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube15" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1003, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube16" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1030, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube17" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1057, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube18" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1085, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube19" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1113, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Metalic cube20" parent="ParallaxBackground" instance=ExtResource( 1 )]
+position = Vector2( 1140, 397 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="circular saw2" parent="ParallaxBackground" instance=ExtResource( 3 )]
+position = Vector2( 878, 397 )
+scale = Vector2( 0.14, 0.14 )
+
+[node name="Movil Platform3" parent="ParallaxBackground" instance=ExtResource( 2 )]
+position = Vector2( 1072, 290 )
+scale = Vector2( 0.109935, 0.0779421 )
+
+[node name="Wall EnemiG0" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall EnemiG0"]
+position = Vector2( 922, 382 )
+shape = SubResource( 13 )
+
+[node name="Left Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
+position = Vector2( -6.5, 275.5 )
+shape = SubResource( 2 )
+
+[node name="Right Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall"]
+position = Vector2( 1164, 382 )
+shape = SubResource( 3 )
+
+[node name="P_V" type="Path2D" parent="."]
+position = Vector2( 21, -35 )
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="P_V"]
+position = Vector2( 309.006, 282.088 )
+rotation = 1.544
+offset = 44.64
+
+[node name="Movil Platform" parent="P_V" instance=ExtResource( 2 )]
+position = Vector2( 268, 306 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="P_V/Movil Platform"]
+autoplay = "Moving"
+anims/Moving = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="P_H" type="Path2D" parent="."]
+position = Vector2( -29, -15 )
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="P_H"]
+position = Vector2( 337, 375 )
+
+[node name="Movil Platform" parent="P_H/PathFollow2D" instance=ExtResource( 2 )]
+position = Vector2( 123.832, -28.7334 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="P_H/PathFollow2D/Movil Platform"]
+autoplay = "Moving H"
+"anims/Moving H" = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+
+[node name="P_UP_H" type="Path2D" parent="."]
+position = Vector2( -38, -11 )
+curve = SubResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="P_UP_H"]
+position = Vector2( 637.837, 338.974 )
+rotation = -0.00247026
+offset = 105.83
+
+[node name="Movil Platform" parent="P_UP_H/PathFollow2D" instance=ExtResource( 2 )]
+position = Vector2( -47.7656, -29.092 )
+scale = Vector2( 0.09, 0.09 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="P_UP_H/PathFollow2D/Movil Platform"]
+autoplay = "Moving UP_h"
+"anims/Moving UP_h" = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[node name="Chest" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1136, 300 )
+rotation = -0.0464778
+scale = Vector2( 0.12, 0.12 )
+
+[node name="Niguana M" parent="." instance=ExtResource( 11 )]
+position = Vector2( 29.9999, 488 )
+
+[node name="Portal L2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1125, 489 )
+scale = Vector2( 0.7, 0.7 )
+collision_layer = 2
+
+[node name="coin counter" parent="." instance=ExtResource( 15 )]
+
+[node name="Coin" parent="." instance=ExtResource( 13 )]
+position = Vector2( 31, 164 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Coin2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 61, 165 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Coin3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 89, 165 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="Coin4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 118, 164 )
+scale = Vector2( 0.07, 0.07 )
+
+[node name="BlueBerry" parent="." instance=ExtResource( 14 )]
+position = Vector2( 185, 490 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="BlueBerry2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 229, 489 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="BlueBerry3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 269, 487 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Macaw P" parent="." instance=ExtResource( 16 )]
+scale = Vector2( 0.26, 0.26 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = -15.702
+autoplay = true
+
+[node name="Fruits counter" parent="." instance=ExtResource( 21 )]
+
+[node name="Pause" parent="." instance=ExtResource( 20 )]
+
+[node name="GAME OVER" parent="." instance=ExtResource( 22 )]
+visible = false

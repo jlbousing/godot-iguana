@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Enemies/Parrot/guacamaya azul sprite.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Macaw P.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 360, 0, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 720, 0, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 360, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 360, 360, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 720, 360, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 720, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 360, 720, 360, 360 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 720, 720, 360, 360 )
+
+[sub_resource type="SpriteFrames" id=46]
+animations = [ {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
+"loop": true,
+"name": "FLY",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=48]
+resource_name = "Moving"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8.9, 12, 15, 17, 18.9, 20 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -112, 171 ), Vector2( 207, 357 ), Vector2( 637, 252 ), Vector2( 824, 422 ), Vector2( 1245, 262 ), Vector2( 1231, 258 ), Vector2( 877, 247 ), Vector2( 506, 427 ), Vector2( 176, 195 ), Vector2( -108, 147 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 12.1, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -112, 171 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 149.5, 134.5 )
+
+[node name="Macaw P" type="AnimatedSprite" groups=["Enemies"]]
+position = Vector2( -112, 171 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 46 )
+animation = "FLY"
+frame = 8
+playing = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Moving"
+anims/Moving = SubResource( 48 )
+anims/RESET = SubResource( 49 )
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 6.5, 25.5 )
+shape = SubResource( 47 )
+
+[node name="Right_Ray" type="RayCast2D" parent="."]
+position = Vector2( 197.5, 42.4999 )
+scale = Vector2( 2, 1 )
+enabled = true
+cast_to = Vector2( 200, 0 )
+collision_mask = 8
+
+[node name="Left_Ray" type="RayCast2D" parent="."]
+position = Vector2( -187.5, 42.4999 )
+scale = Vector2( 2, 1 )
+enabled = true
+cast_to = Vector2( -200, 0 )
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

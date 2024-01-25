@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Chest.gd" type="Script" id=1]
+[ext_resource path="res://Items/Chest/chest_open.png" type="Texture" id=2]
+[ext_resource path="res://Items/Chest/chest_open coins .png" type="Texture" id=3]
+[ext_resource path="res://Items/Chest/chest_closed.png" type="Texture" id=4]
+[ext_resource path="res://sounds/Chest__coins-shake-4.wav" type="AudioStream" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 640, 480 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 640, 480 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 640, 480 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": false,
+"name": "Chest closed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": false,
+"name": "Chest open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 114.5, 113.5 )
+
+[node name="Chest" type="Area2D" groups=["Items"]]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "Chest open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.5, -12.5 )
+shape = SubResource( 5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 15.841
+
+[connection signal="area_entered" from="." to="." method="_on_Chest_area_entered"]
