@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Objects-24x24.png-2fddbd2be7a941849c5b5ba6a1b7e812.stex"
+path="res://.import/Bonfire.png-728684362d5690ed4634de7cbb2cb61e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites CGJ/ColdValleys-DemoVersion/Sprites/World/Objects-24x24.png"
-dest_files=[ "res://.import/Objects-24x24.png-2fddbd2be7a941849c5b5ba6a1b7e812.stex" ]
+source_file="res://Sprites CGJ/Bonvicio_Bonfire_1-0/Bonfire.png"
+dest_files=[ "res://.import/Bonfire.png-728684362d5690ed4634de7cbb2cb61e.stex" ]
 
 [params]
 

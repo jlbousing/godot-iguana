@@ -7,7 +7,7 @@ var GRAVITY = 20
 var JUMP = 500
 export var health = 20
 
-
+export var climbing = false
 
 func _process(_delta):
 	pass

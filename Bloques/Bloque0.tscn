@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tilesets/ground.tres" type="TileSet" id=1]
+[ext_resource path="res://Escenas/Fogata.tscn" type="PackedScene" id=2]
+
+[node name="Bloque0" type="Node2D"]
+scale = Vector2( 3, 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_quadrant_size = 24
+format = 1
+tile_data = PoolIntArray( 262149, 1, 0, 262150, 2, 0, 262151, 2, 0, 262152, 3, 0, 327685, 5, 0, 327688, 19, 0, 327689, 2, 0, 393216, 1, 0, 393217, 2, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 18, 0 )
+
+[node name="Fogata" parent="." instance=ExtResource( 2 )]
+position = Vector2( 167.333, 82 )

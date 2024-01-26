@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tilesets/ground.tres" type="TileSet" id=1]
+[ext_resource path="res://tilesets/iceberg.tres" type="TileSet" id=2]
+
+[node name="Tiles" type="Node2D"]
+
+[node name="Ground" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+cell_quadrant_size = 24
+format = 1
+
+[node name="Iceberg" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 24, 24 )
+cell_quadrant_size = 24
+format = 1
