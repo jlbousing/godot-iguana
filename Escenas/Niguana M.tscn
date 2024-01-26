@@ -125,7 +125,7 @@ radius = 9.32204
 height = 30.5085
 
 [node name="Niguana M" type="KinematicBody2D" groups=["Player"]]
-scale = Vector2( 1.18, 1.18 )
+scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -156,5 +156,6 @@ shape = SubResource( 22 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]

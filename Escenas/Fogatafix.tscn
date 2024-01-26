@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites CGJ/Bonvicio_Bonfire_1-0/Bonfire.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 33.0151
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 18, 28 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 18, 0, 18, 28 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 18, 28 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 54, 0, 18, 28 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "fogata",
+"speed": 4.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BurnArea" type="Area2D" parent="." groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BurnArea"]
+shape = SubResource( 1 )
+
+[node name="WarmArea" type="Area2D" parent="." groups=["Warm_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarmArea"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+animation = "fogata"
+playing = true
