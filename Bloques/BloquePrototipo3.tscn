@@ -4,7 +4,6 @@
 [ext_resource path="res://Escenas/Fogatafix.tscn" type="PackedScene" id=2]
 
 [node name="Bloque1a" type="Node2D"]
-scale = Vector2( 3, 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
