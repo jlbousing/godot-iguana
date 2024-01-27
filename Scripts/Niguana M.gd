@@ -7,6 +7,7 @@ var GRAVITY = 20
 var JUMP = 650
 
 var isInWarnZone = false
+var onLadder = false
 
 export var health = 20
 
@@ -20,17 +21,24 @@ func  _physics_process(_delta):
 	if DataSingleton.contLife <= 0:
 			queue_free()
 	
-	if Input.is_action_pressed("Derecha"):
-		MOVIMIENTO.x += VELOCIDAD
-		$AnimatedSprite.play("Walk")
-		$AnimatedSprite.flip_h =false
-	elif Input.is_action_pressed("Izquierda"):
-		MOVIMIENTO.x -= VELOCIDAD
-		$AnimatedSprite.play("Walk")
-		$AnimatedSprite.flip_h = true
-	else:
-		MOVIMIENTO.x = 0
-		$AnimatedSprite.play("Idle")
+	if onLadder:
+		if Input.is_action_pressed("ui_up"):
+			MOVIMIENTO.y -= 25
+			$AnimatedSprite.play("Walk")
+		if MOVIMIENTO.y == 0:
+			$AnimatedSprite.play("Idle")	
+	else:		
+		if Input.is_action_pressed("Derecha"):
+			MOVIMIENTO.x += VELOCIDAD
+			$AnimatedSprite.play("Walk")
+			$AnimatedSprite.flip_h =false
+		elif Input.is_action_pressed("Izquierda"):
+			MOVIMIENTO.x -= VELOCIDAD
+			$AnimatedSprite.play("Walk")
+			$AnimatedSprite.flip_h = true
+		else:
+			MOVIMIENTO.x = 0
+			$AnimatedSprite.play("Idle")
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("Saltar"):
@@ -70,6 +78,8 @@ func _on_Hurtbox_area_entered(area):
 		isInWarnZone = true
 	elif area.name == "BurnArea":
 		queue_free()
+	if area.name == "Ladder":
+		onLadder = true
 
 
 func _on_Timer_timeout():
@@ -83,3 +93,5 @@ func _on_Hurtbox_area_exited(area):
 	if area.name == "WarmArea":
 		isInWarnZone = true
 		print_debug("SE SALE DE ZONA SEGURA")
+	if area.name == "Ladder":
+		onLadder = false
