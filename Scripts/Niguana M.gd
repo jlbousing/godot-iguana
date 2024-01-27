@@ -23,7 +23,7 @@ func  _physics_process(_delta):
 	
 	if onLadder:
 		if Input.is_action_pressed("ui_up"):
-			MOVIMIENTO.y -= 25
+			MOVIMIENTO.y -= 30
 			$AnimatedSprite.play("Walk")
 		if MOVIMIENTO.y == 0:
 			$AnimatedSprite.play("Idle")	

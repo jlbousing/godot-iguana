@@ -11,10 +11,10 @@ tile_set = ExtResource( 4 )
 cell_size = Vector2( 24, 24 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 196608, 13, 0, 196609, 14, 0, 196610, 14, 0, 196611, 15, 0, 196619, 0, 0, 262149, 0, 0, 262151, 0, 0, 262155, 4, 0, 327685, 4, 0, 327687, 4, 0, 327691, 4, 0, 393221, 8, 0, 393223, 8, 0, 393224, 10, 0, 393225, 10, 0, 393226, 10, 0, 393227, 11, 0 )
+tile_data = PoolIntArray( 196619, 0, 0, 262149, 0, 0, 262151, 0, 0, 262155, 4, 0, 327683, 0, 0, 327685, 4, 0, 327687, 4, 0, 327691, 4, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393221, 8, 0, 393223, 8, 0, 393224, 10, 0, 393225, 10, 0, 393226, 10, 0, 393227, 11, 0 )
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 44, 58.6667 )
+position = Vector2( 44, 130 )
 
 [node name="Ladder" parent="." instance=ExtResource( 1 )]
 position = Vector2( 253.667, 109 )
