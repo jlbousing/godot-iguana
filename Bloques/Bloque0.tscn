@@ -26,6 +26,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
-position = Vector2( -75.3333, 78 )
+position = Vector2( 300, 78 )
 
 [connection signal="timeout" from="Timer" to="Niguana M" method="_on_Timer_timeout"]

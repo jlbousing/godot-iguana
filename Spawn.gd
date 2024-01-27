@@ -16,18 +16,17 @@ func generate_module():
 	return localPlatform
 	
 func calculate_next_module_start(positionX):
-	return positionX + 250
+	return positionX + 300
 	
 func _physics_process(delta):
+	print_debug(nextPosition)
 	if (nextPosition == 0 || self.position.x >= nextPosition):
 		nextPosition = calculate_next_module_start(self.position.x)
-		var module = generate_module().instance()
-		module.position = Vector2(self.position.x,-50)
-		var world = get_parent()
-		world.add_child(module)
-		#add_child(module)
-		#print_debug(module.get_parent().get_parent().name)
-
+		if nextPosition != 0:
+			var module = generate_module().instance()
+			module.position = Vector2(self.position.x,-50)
+			var world = get_parent()
+			world.add_child(module)
 			
 	motion.x = 200
 	move_and_slide(motion)
