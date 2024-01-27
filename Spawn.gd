@@ -9,11 +9,6 @@ var platformModule1 = preload("res://Bloques/BloquePrototipo1.tscn")
 var platformModule2 = preload("res://Bloques/BloquePrototipo2.tscn")
 var platformModule3 = preload("res://Bloques/BloquePrototipo3.tscn")
 
-#var world = preload("res://Bloques/Bloque0.tscn")
-
-func _ready():
-	print_debug()
-
 func generate_module():
 	randomize()
 	var platformModules = [platformModule1,platformModule2,platformModule3]
@@ -25,7 +20,6 @@ func calculate_next_module_start(positionX):
 	
 func _physics_process(delta):
 	if (nextPosition == 0 || self.position.x >= nextPosition):
-		print_debug("BANDERA")
 		nextPosition = calculate_next_module_start(self.position.x)
 		var module = generate_module().instance()
 		module.position = Vector2(self.position.x,-50)
