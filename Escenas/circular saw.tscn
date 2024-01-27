@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/saw.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Level 2/sierra C 001 copia.png" type="Texture" id=2]
@@ -19,6 +19,11 @@ radius = 61.8142
 [sub_resource type="CircleShape2D" id=3]
 radius = 117.154
 
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array(  )
+}
+
 [node name="circular saw" type="StaticBody2D"]
 position = Vector2( 454, 299 )
 collision_layer = 4
@@ -26,6 +31,7 @@ collision_layer = 4
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Turn"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,5 +43,8 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saw"]
 shape = SubResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 4 )
 
 [connection signal="body_entered" from="saw" to="saw" method="_on_saw_body_entered"]

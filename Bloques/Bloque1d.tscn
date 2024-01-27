@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Escenas/Ladder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Fogatafix.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilesets/ground.tres" type="TileSet" id=4]
+
+[node name="Bloque1d" type="Node2D"]
+scale = Vector2( 3, 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 24, 24 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 196608, 13, 0, 196609, 14, 0, 196610, 14, 0, 196611, 15, 0, 196619, 0, 0, 262149, 0, 0, 262151, 0, 0, 262155, 4, 0, 327685, 4, 0, 327687, 4, 0, 327691, 4, 0, 393221, 8, 0, 393223, 8, 0, 393224, 10, 0, 393225, 10, 0, 393226, 10, 0, 393227, 11, 0 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 44, 58.6667 )
+
+[node name="Ladder" parent="." instance=ExtResource( 1 )]
+position = Vector2( 253.667, 109 )
+
+[node name="Coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224, 138.333 )
+scale = Vector2( 0.04, 0.04 )

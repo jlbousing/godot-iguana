@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Escenas/Ladder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/circular saw.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Fogatafix.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilesets/ground.tres" type="TileSet" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 92.6667, 105, 0, 0, 0, 0, 92.6667, 159 )
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 93.3333, 151.667 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "up"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 2.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 93.3333, 155.667 ), Vector2( 93, 131 ), Vector2( 92, 106.333 ), Vector2( 92.3333, 132.333 ), Vector2( 92.3333, 157 ) ]
+}
+
+[node name="Bloque1c" type="Node2D"]
+scale = Vector2( 3, 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 24, 24 )
+cell_quadrant_size = 24
+format = 1
+tile_data = PoolIntArray( 196608, 1, 0, 196609, 14, 0, 196610, 14, 0, 196611, 14, 0, 196612, 15, 0, 262144, 4, 0, 262151, 0, 0, 262155, 12, 0, 327680, 4, 0, 393216, 5, 0, 458752, 9, 0, 458753, 10, 0, 458754, 10, 0, 458755, 10, 0, 458756, 10, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 11, 0 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 50.3333, 153.667 )
+
+[node name="Ladder" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248, 131.333 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 92.6667, 105 )
+rotation = 1.5708
+
+[node name="circular saw" parent="Path2D" instance=ExtResource( 2 )]
+position = Vector2( 93.3333, 151.667 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/circular saw"]
+autoplay = "up"
+anims/RESET = SubResource( 2 )
+anims/up = SubResource( 3 )
