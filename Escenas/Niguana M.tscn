@@ -155,6 +155,14 @@ position = Vector2( 0, 1.69492 )
 shape = SubResource( 22 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.15
+drag_margin_top = 0.15
+drag_margin_right = 0.15
+drag_margin_bottom = 0.1
+editor_draw_drag_margin = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
