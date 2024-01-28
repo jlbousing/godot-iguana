@@ -72,7 +72,7 @@ func _on_Hurtbox_area_entered(area):
 	elif area.name == "BurnArea" || area.name == "waterarea":
 		ocean.queue_free()
 		queue_free()
-	if area.name == "Ladder":
+	if area.is_in_group("starway"):
 		onLadder = true
 
 
