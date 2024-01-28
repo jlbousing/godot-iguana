@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var positionLeft = 5
-var speedScalar = 0.5
+var speedScalar = 5
 var motion = Vector2(0,0)
 var nextPosition = 0
 
@@ -27,5 +27,6 @@ func _physics_process(delta):
 			var world = get_parent()
 			world.add_child(module)
 			
-	motion.x = 200
+	#motion.x = 200
+	motion.x = 200 * speedScalar
 	move_and_slide(motion)

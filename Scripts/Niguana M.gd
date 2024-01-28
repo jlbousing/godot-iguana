@@ -9,6 +9,8 @@ var JUMP = 650
 var isInWarnZone = false
 var onLadder = false
 
+onready var ocean = get_parent().get_node("Ocean")
+
 export var health = 20
 
 export var climbing = false
@@ -19,6 +21,7 @@ func _process(_delta):
 
 func  _physics_process(_delta):
 	if DataSingleton.contLife <= 0:
+			ocean.queue_free()
 			queue_free()
 	
 	if onLadder:
@@ -57,17 +60,6 @@ func  _physics_process(_delta):
 		if obj_colisionado.is_in_group("Enemies"):
 			Global.health -= 1
 
-
-#func _on_Area2D_body_entered(_body):
-#	if _body.name == "Enemies":
-#		#Global.health -= 1
-#		queue_free()
-
-
-#	if _body.name == "Enemies":
-#		#Global.health -= 1
-#		queue_free()
-
 func on_player_dead():
 	print_debug("MUERTA")
 
@@ -77,6 +69,7 @@ func _on_Hurtbox_area_entered(area):
 		print_debug("zona segura")
 		isInWarnZone = true
 	elif area.name == "BurnArea" || area.name == "waterarea":
+		ocean.queue_free()
 		queue_free()
 	if area.name == "Ladder":
 		onLadder = true
