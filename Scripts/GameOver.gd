@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	print_debug("texto text ready")
+
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed:

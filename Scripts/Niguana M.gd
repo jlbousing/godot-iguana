@@ -23,7 +23,8 @@ func  _physics_process(_delta):
 	if DataSingleton.contLife <= 0:
 			ocean.queue_free()
 			queue_free()
-			get_tree().change_scene("res://Escenas/GameOver.tscn")
+			#get_tree().change_scene("res://Escenas/GameOver.tscn")
+			get_tree().change_scene("res://Escenas/GAME OVER.tscn")
 	if onLadder:
 		if Input.is_action_pressed("ui_up"):
 			MOVIMIENTO.y -= 30
@@ -72,7 +73,8 @@ func _on_Hurtbox_area_entered(area):
 	elif area.name == "BurnArea" || area.name == "waterarea":
 		#ocean.queue_free()
 		#queue_free()
-		get_tree().change_scene("res://Escenas/GameOver.tscn")
+		#get_tree().change_scene("res://Escenas/GameOver.tscn")
+		get_tree().change_scene("res://Escenas/GAME OVER.tscn")
 	if area.is_in_group("starway"):
 		onLadder = true
 
