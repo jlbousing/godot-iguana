@@ -11,13 +11,13 @@ var onLadder = false
 
 onready var ocean = get_parent().get_node("Ocean")
 
+
 export var health = 20
 
 export var climbing = false
 
-func _process(_delta):
-	pass
-
+func _ready():
+	DataSingleton.score = 0
 
 func  _physics_process(_delta):
 	if DataSingleton.contLife <= 0:
@@ -33,6 +33,7 @@ func  _physics_process(_delta):
 	else:		
 		if Input.is_action_pressed("Derecha"):
 			MOVIMIENTO.x += VELOCIDAD
+			DataSingleton.score += MOVIMIENTO.x
 			$AnimatedSprite.play("Walk")
 			$AnimatedSprite.flip_h =false
 		elif Input.is_action_pressed("Izquierda"):
