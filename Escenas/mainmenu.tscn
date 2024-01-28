@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/ArcadeAlternate.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menuprincipal/PortadaIguanaHelada.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "insertcoin"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Select:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 582.556, 331 )
+scale = Vector2( 1.83889, 1.83889 )
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite"]
+margin_left = -4.10873
+margin_top = 142.477
+margin_right = 290.891
+margin_bottom = 182.477
+
+[node name="Select" type="Button" parent="Sprite/VBoxContainer"]
+margin_right = 295.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 0, 0.988235, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "INSERTA UNA MONEDA PARA JUGAR"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/VBoxContainer"]
+anims/insertcoin = SubResource( 2 )
