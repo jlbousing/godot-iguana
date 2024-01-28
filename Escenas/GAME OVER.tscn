@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/ArcadeAlternate.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Game Over.gd" type="Script" id=2]
 [ext_resource path="res://sounds/Game Over/382310__myfox14__game-over-arcade.wav" type="AudioStream" id=3]
 [ext_resource path="res://Escenas/ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/INSERTCOIN.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -19,6 +20,9 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 45
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
 
 [node name="GAME OVER" type="CanvasLayer"]
 
@@ -56,23 +60,35 @@ margin_bottom = 246.0
 custom_colors/font_color = Color( 0.0313726, 0.498039, 0.0901961, 1 )
 custom_colors/font_color_shadow = Color( 0.968627, 0.980392, 0.988235, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "NIGUANA PLAY 3.5"
+text = "IGUANA HELADA"
 
-[node name="Restart" type="Button" parent="."]
+[node name="INSERTCOIN" type="Button" parent="."]
 margin_left = 144.0
 margin_top = 414.0
 margin_right = 996.0
 margin_bottom = 466.0
-custom_colors/font_color = Color( 0.992157, 0.972549, 0.972549, 1 )
-custom_colors/font_color_hover = Color( 0.164706, 0.976471, 0.0941176, 1 )
-custom_colors/font_color_pressed = Color( 0.988235, 0.0470588, 0.0470588, 1 )
+custom_colors/font_color = Color( 0.803922, 0, 0.796078, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "RESTART"
+text = "INSERTA UNA MONEDA PARA JUGAR"
 flat = true
+script = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
-[connection signal="pressed" from="Restart" to="Game Over" method="_on_Restart_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_top = 19.0
+margin_right = 12.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 5 )
+text = "NIDIANA PONS"
+
+[connection signal="pressed" from="INSERTCOIN" to="Game Over" method="_on_Restart_pressed"]
