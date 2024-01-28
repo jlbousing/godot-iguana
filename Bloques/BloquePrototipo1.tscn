@@ -19,6 +19,3 @@ position = Vector2( 50.3333, 153.667 )
 
 [node name="Ladder" parent="." instance=ExtResource( 1 )]
 position = Vector2( -12, 131.667 )
-
-[node name="Ladder2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 252, 131.667 )
