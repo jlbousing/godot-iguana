@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tilesets/ground.tres" type="TileSet" id=1]
 [ext_resource path="res://Escenas/Fogatafix.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Escenas/Spawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Escenas/Ocean.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Escenas/ParallaxBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Vidas/iguana1.png" type="Texture" id=7]
+[ext_resource path="res://Bloques/CanvasLife.gd" type="Script" id=8]
 
 [node name="Bloque0" type="Node2D"]
 scale = Vector2( 3, 3 )
@@ -24,7 +26,7 @@ position = Vector2( 17.3334, 120.667 )
 position = Vector2( 170.667, 83 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
@@ -37,4 +39,14 @@ position = Vector2( 0, 178 )
 offset = Vector2( 0, -400 )
 transform = Transform2D( 1, 0, 0, 1, 0, -400 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Life" type="TextureRect" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+
+[connection signal="less_life" from="Niguana M" to="CanvasLayer" method="_on_Niguana_M_less_life"]
+[connection signal="plus_life" from="Niguana M" to="CanvasLayer" method="_on_Niguana_M_plus_life"]
 [connection signal="timeout" from="Timer" to="Niguana M" method="_on_Timer_timeout"]
