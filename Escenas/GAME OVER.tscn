@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/ArcadeAlternate.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/Game Over.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://sounds/Game Over/382310__myfox14__game-over-arcade.wav" type="AudioStream" id=3]
 [ext_resource path="res://Escenas/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Escenas/INSERTCOIN.gd" type="Script" id=5]
