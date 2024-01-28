@@ -60,13 +60,14 @@ func  _physics_process(_delta):
 		if obj_colisionado.is_in_group("Enemies"):
 			Global.health -= 1
 
-func on_player_dead():
-	print_debug("MUERTA")
-
+signal less_life
+signal plus_life
+	
 func _on_Hurtbox_area_entered(area):
 	print_debug(area.name)
 	if area.name == "WarmArea":
-		print_debug("zona segura")
+		#print_debug("zona segura")
+		emit_signal("plus_life")
 		isInWarnZone = true
 	elif area.name == "BurnArea" || area.name == "waterarea":
 		ocean.queue_free()
@@ -78,14 +79,15 @@ func _on_Hurtbox_area_entered(area):
 func _on_Timer_timeout():
 	print_debug("time out")
 	if !isInWarnZone:
-		DataSingleton.contLife -= 25
-		print_debug(DataSingleton.contLife)
+		#DataSingleton.contLife -= 25
+		emit_signal("less_life")
+		#print_debug(DataSingleton.contLife)
 
 
 func _on_Hurtbox_area_exited(area):
 	print_debug(area.name)
 	if area.name == "WarmArea":
-		isInWarnZone = true
+		isInWarnZone = false
 		print_debug("SE SALE DE ZONA SEGURA")
 	if area.name == "Ladder":
 		onLadder = false
