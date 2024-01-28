@@ -92,6 +92,7 @@ volume_db = -16.323
 autoplay = true
 
 [node name="NIGUANA PLAY" type="Label" parent="."]
+visible = false
 margin_left = -35.0
 margin_top = 38.0
 margin_right = 635.0

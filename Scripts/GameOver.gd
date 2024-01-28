@@ -7,4 +7,5 @@ func _input(event):
 				on_key_pressed()
 
 func on_key_pressed():
+	DataSingleton.contLife = 100
 	get_tree().change_scene("res://Bloques/Bloque0.tscn")
