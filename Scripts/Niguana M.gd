@@ -76,7 +76,7 @@ func _on_Hurtbox_area_entered(area):
 	if area.name == "WarmArea":
 		print_debug("zona segura")
 		isInWarnZone = true
-	elif area.name == "BurnArea":
+	elif area.name == "BurnArea" || area.name == "waterarea":
 		queue_free()
 	if area.name == "Ladder":
 		onLadder = true
@@ -90,6 +90,7 @@ func _on_Timer_timeout():
 
 
 func _on_Hurtbox_area_exited(area):
+	print_debug(area.name)
 	if area.name == "WarmArea":
 		isInWarnZone = true
 		print_debug("SE SALE DE ZONA SEGURA")

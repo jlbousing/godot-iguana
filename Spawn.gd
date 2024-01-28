@@ -19,7 +19,6 @@ func calculate_next_module_start(positionX):
 	return positionX + 300
 	
 func _physics_process(delta):
-	print_debug(nextPosition)
 	if (nextPosition == 0 || self.position.x >= nextPosition):
 		nextPosition = calculate_next_module_start(self.position.x)
 		if nextPosition != 0:
