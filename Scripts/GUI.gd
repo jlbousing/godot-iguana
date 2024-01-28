@@ -4,7 +4,7 @@ extends Control
 
 
 func _on_START_pressed():
-		get_tree().change_scene("res://Escenas/Forest.tscn")
+		get_tree().change_scene("res://Bloques/Bloque0.tscn")
 	
 
 

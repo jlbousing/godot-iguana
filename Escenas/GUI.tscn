@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/Kenney Rocket.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://GUI/DreamShaper_v5_A_lush_vibrant_forest_with_towering_trees_a_bu_1.jpg" type="Texture" id=2]
+[ext_resource path="res://Menuprincipal/PortadaIguanaHelada.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=3]
 [ext_resource path="res://sounds/Electronic Fantasy.ogg" type="AudioStream" id=4]
 [ext_resource path="res://fonts/ArcadeAlternate.ttf" type="DynamicFontData" id=5]
@@ -41,15 +41,17 @@ margin_bottom = -102.0
 script = ExtResource( 3 )
 
 [node name="DreamShaperV5ALushVibrantForestWithToweringTreesABu1" type="Sprite" parent="."]
-position = Vector2( 246, 172 )
-scale = Vector2( 1.24414, 1 )
+position = Vector2( 299, 176 )
+scale = Vector2( 1.8, 1.8 )
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 190.0
-margin_bottom = 190.0
+margin_left = 57.0
+margin_top = 169.0
+margin_right = 57.0
+margin_bottom = 169.0
 
 [node name="START" type="Button" parent="VBoxContainer"]
 margin_right = 566.0
@@ -92,6 +94,7 @@ volume_db = -16.323
 autoplay = true
 
 [node name="NIGUANA PLAY" type="Label" parent="."]
+visible = false
 margin_left = -35.0
 margin_top = 38.0
 margin_right = 635.0
