@@ -88,7 +88,6 @@ func _on_Timer_timeout():
 
 
 func _on_Hurtbox_area_exited(area):
-	print_debug(area.name)
 	if area.name == "WarmArea":
 		isInWarnZone = false
 		print_debug("SE SALE DE ZONA SEGURA")

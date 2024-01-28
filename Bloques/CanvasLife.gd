@@ -25,7 +25,7 @@ func _on_Niguana_M_less_life():
 	DataSingleton.contLife -= 25
 	update_life_sprite()
 	if DataSingleton.contLife == 0:
-		get_tree().change_scene("res://Escenas/GameOver.tscn")
+		get_tree().change_scene("res://Escenas/GAME OVER.tscn")
 
 
 func _on_Niguana_M_plus_life():
